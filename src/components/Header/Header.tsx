@@ -21,9 +21,6 @@ export default function Header({query, setQuery} : HeaderProps) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button className="btn btn-primary" type="submit">
-          Buscar
-        </button>
       </div>
     </form>
     </header>

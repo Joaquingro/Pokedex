@@ -2,11 +2,9 @@ import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import style from "../Pokemons/Pokemons.module.css";
 import { useEffect, useState } from "react";
-import { useParams } from'react-router';
-import { getPokemons } from "../../api/fetchPokemon";
+import { getPokemons } from "../../api/getPokemons";
 
 export default function Pokemons({ Link }: any) {
-  const {name} = useParams();
   const [query, setQuery] = useState("");
   const [pokemon, setPokemon] = useState<{ name: string; id: number; imgSrc: string; }[]>([]);
 
@@ -21,14 +19,19 @@ useEffect(() => {
     };
     getAllPokemons();    
   }, [])
+
+const filteredPokemons = pokemon?.slice(0, 151).filter((pokemon) => {
+  return pokemon.name.match(query);
+})
+
   return (
   <>
     <Header query={query} setQuery={setQuery}/>
     <main className={style.main}>
       
     <nav className={style.container}>
-  {pokemon?.slice(0, 151).map((pokemon) => (
-    <Link className={style.texts} to={`/pokemon/${pokemon.name.toLocaleLowerCase()}`} key={pokemon.id}>
+  {filteredPokemons?.slice(0, 151).map((pokemon) => (
+    <Link className={style.texts} to={`/pokemons/${pokemon.name}`} key={pokemon.id}>
         <span>{pokemon.id}</span>
       <img src={pokemon.imgSrc} alt="pokemon" />
       <div className={style.spans}>
