@@ -3,7 +3,7 @@ import pikachu from "../../assets/pikachu.png";
 import pokeball from "../../assets/pokeball.png";
 import map from "../../assets/pointer.png";
 
-export default function Footer({ Link }) {
+export default function Footer({ Link }: any) {
   return (
     <footer className={style.footer}>
         <Link className = {style.footerLink} to = "/pokemons">

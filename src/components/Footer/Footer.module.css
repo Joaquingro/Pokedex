@@ -4,6 +4,8 @@
     background: var(--bg-gradient);
     display: flex;
     width: 100%;
+    position: fixed;
+    bottom: 0;
 }
 
 .footerLink{

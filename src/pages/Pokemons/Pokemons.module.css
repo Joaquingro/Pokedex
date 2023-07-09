@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.main{
+    margin-bottom: 10em;
+}
+
+.texts{
+    width: 12em;
+    height: 10em;
+    border: 2px solid rgb(219, 219, 219, 0.3);
+    padding: 10px;
+    text-decoration: none;
+    align-items: center;
+}
+
+.spans{
+    display: block;
+    flex-direction: row;
+}
