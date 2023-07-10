@@ -11,7 +11,7 @@ export const getPokemons = async () => {
         const pokemons = await data.results.map((pokemon: any) => ({
             name: pokemon.name,
             id: pokemon.national_number,
-            imgSrc: pokemon.sprites.animated,
+            imgSrc: pokemon.sprites.normal,
             
         }));
 

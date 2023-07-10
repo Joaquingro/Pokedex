@@ -1,17 +1,38 @@
 .container{
     display: flex;
     flex-wrap: wrap;
-    
 }
 
 .main{
-    margin-bottom: 10em;
+    margin-bottom: 6em;
+    background-color: rgb(161, 191, 250, 0.5);
+
+}
+
+.kanto{
+    background-color: rgb(119, 75, 224);
+    height: 1em;
+    margin-bottom: 2em;
+}
+
+.kanto h2{
+    background-color: rgb(119, 75, 224);
+    width: 5em;
+    border-radius: 10px;
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+
+.img{
+    background-color: rgba(95, 84, 243, 0.035);
+    padding: 10px;
+    border-radius: 150px;
 }
 
 .texts{
     width: 12em;
     height: 10em;
-    border: 2px solid rgb(219, 219, 219, 0.3);
     padding: 10px;
     text-decoration: none;
     align-items: center;
@@ -20,4 +41,6 @@
 .spans{
     display: block;
     flex-direction: row;
+    color: black;
+    font-weight: bold;
 }

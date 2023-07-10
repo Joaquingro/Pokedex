@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import style from "../Pokemons/Pokemons.module.css";
 import { useEffect, useState } from "react";
 import { getPokemons } from "../../api/getPokemons";
+import Categories from "../../components/Categories/Categories";
 
 export default function Pokemons({ Link }: any) {
   const [query, setQuery] = useState("");
@@ -28,15 +29,14 @@ const filteredPokemons = pokemon?.slice(0, 151).filter((pokemon) => {
   <>
     <Header query={query} setQuery={setQuery}/>
     <main className={style.main}>
-      
+    <Categories Link= {Link}/>
+    <div className={style.kanto}>
+      <h2>Kanto</h2>
+    </div>
     <nav className={style.container}>
   {filteredPokemons?.slice(0, 151).map((pokemon) => (
     <Link className={style.texts} to={`/pokemons/${pokemon.name}`} key={pokemon.id}>
-        <span>{pokemon.id}</span>
-      <img src={pokemon.imgSrc} alt="pokemon" />
-      <div className={style.spans}>
-        <span>{pokemon.name}</span>
-      </div>
+      <img className={style.img} src={pokemon.imgSrc} alt="pokemon" />
     </Link>
   ))}
 </nav>
