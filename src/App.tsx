@@ -7,6 +7,7 @@ import { Items, Pokemon, Pokemons } from './pages';
 function App() {
   
   return (
+    <>
     <Router>
       <Routes>
         <Route path="/" element={<Pokemons Link = {Link} />} />
@@ -15,6 +16,7 @@ function App() {
         <Route path="/pokemons/:name" element={<Pokemon />} />
       </Routes>
     </Router>
+    </>
   )
 }
 
