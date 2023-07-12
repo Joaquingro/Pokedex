@@ -2,14 +2,18 @@ import { useParams } from "react-router-dom";
 import style from "../Pokemon/Pokemon.module.css";
 import { useEffect, useState } from "react";
 import { getPokemon } from "../../api/getPokemon";
-export default function Pokemon() {
+export default function Pokemon({Link}: any) {
   const {name} = useParams();
   const [pokemon, setPokemon] = useState<{
     name: string;
     img: string;
+    img2: string;
     hp: number;
     attack: number;
     deffense: number;
+    abilities: string;
+    moves: string;
+    id: number, 
   } | null>(null);
   
   console.log(name);
@@ -28,16 +32,26 @@ useEffect(() => {
 }, [name])
 
   return (
-    <div className={style.pokemon}>
+    
+    <div className={style.container}>
       {pokemon && (
-      <div>
+      <div className={style.pokemon}>
       <img src={pokemon.img}/>
-      <p>{pokemon.name}</p>
-      <p>Attack: {pokemon.attack}</p>
-      <p>Defense: {pokemon.deffense}</p>
+      <div className={style.info}>
+        <p>Nombre: {name}</p>
+        <p>Id: {pokemon.id}</p>
+        <p>Ataque: {pokemon.attack}</p>
+        <p>Defensa: {pokemon.deffense}</p>
+        <p>Movimientos:</p><p>{pokemon.moves}</p>
+        <p>Habilidades:</p><p>{pokemon.abilities}</p>
+        <p></p>
+      </div>
+      
       </div>
       )} 
-      
+      <Link to = "/pokemons">
+              <button type="button" className="btn btn-outline-danger">Regresar</button>
+      </Link>
 
     </div>
   )

@@ -4,7 +4,7 @@
     background: var(--bg-gradient);
     display: flex;
     width: 100%;
-    position: fixed;
+    position: relative;
     bottom: 0;
 }
 

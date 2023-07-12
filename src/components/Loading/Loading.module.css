@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    justify-content: center;
+    height: 39em;
+    background: var(--bg-colors);
+    align-items: center;
+    color: rgb(110, 107, 107);
+    font-weight: bold;
+    
+}
+.container div{
+    display: flex;
+    flex-direction: column;
+    text-align:center ;
+}
+.container img{
+    border-radius: 200px;
+    width: 12em;
+}

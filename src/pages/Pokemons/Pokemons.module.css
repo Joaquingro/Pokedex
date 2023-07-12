@@ -4,9 +4,8 @@
 }
 
 .main{
-    margin-bottom: 6em;
-    background-color: rgb(161, 191, 250, 0.5);
-
+    background: var(--bg-colors);
+    padding-bottom: 4.4em;
 }
 
 .kanto{
@@ -37,6 +36,8 @@
     text-decoration: none;
     align-items: center;
 }
+
+
 
 .spans{
     display: block;

@@ -7,7 +7,7 @@ export default function Categories({Link}:any) {
     <div className={style.container}>
         <Link className = {style.footerLink} to = "/pokemons">
             <img className = {style.footerIcon} src ={pokeball1}  alt="Pokemons"/>
-            <p>150</p>
+            <p>151</p>
             Kanto
         </Link>
         <Link className = {style.footerLink} to = "/johto">
@@ -24,7 +24,7 @@ export default function Categories({Link}:any) {
         </Link>
         <Link className = {style.footerLink} to = "/sinnoh">
             <img className = {style.footerIcon} src ={pokeball4}  alt="Pokemons"/>
-            <p>102</p>
+            <p>107</p>
 
             Sinnoh
         </Link>
@@ -36,34 +36,29 @@ export default function Categories({Link}:any) {
         </Link>
         <Link className = {style.footerLink} to = "/kalos">
             <img className = {style.footerIcon} src ={pokeball6}  alt="Pokemons"/>
-            <p>66</p>
+            <p>72</p>
 
             Kalos
         </Link>
         <Link className = {style.footerLink} to = "/alola">
             <img className = {style.footerIcon} src ={pokeball7}  alt="Pokemons"/>
-            <p>72</p>
+            <p>88</p>
 
             Alola
         </Link>
         <Link className = {style.footerLink} to = "/galar">
             <img className = {style.footerIcon} src ={pokeball8}  alt="Pokemons"/>
-            <p>8</p>
+            <p>96</p>
 
             Galar
         </Link>
         <Link className = {style.footerLink} to = "/hisui">
             <img className = {style.footerIcon} src ={pokeball9}  alt="Pokemons"/>
-            <p>6</p>
+            <p>103</p>
 
             Hisui
         </Link>
-        <Link className = {style.footerLink} to = "/paldea">
-            <img className = {style.footerIcon} src ={pokeball10}  alt="Pokemons"/>
-            <p>1</p>
-
-            Paldea
-        </Link>
+        
 
     </div>
   )
