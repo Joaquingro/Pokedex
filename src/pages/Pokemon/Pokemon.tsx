@@ -9,7 +9,7 @@ interface MyComponentProps {
 
  const Pokemon: React.FC<MyComponentProps> = ({Link} ) =>  {
 
-
+  const [shiny, setShiny] = useState(false);
   const {name} = useParams();
   const [pokemon, setPokemon] = useState<{
     name: string;
@@ -26,7 +26,10 @@ interface MyComponentProps {
   console.log(name);
   console.log(pokemon);
   
-  
+  const handleClick = () => {
+    setShiny(!shiny);
+  }  
+
   useEffect(() => {
     const onePokemon = async () => {
       if(name){
@@ -41,17 +44,17 @@ interface MyComponentProps {
   return (
     
     <div className={style.container}>
+        <Link to = "/pokemons">
+              <button type="button" className="btn btn-danger">Regresar</button>
+      </Link>
     
       {pokemon && (
       <div className={style.pokemon}>
       <div className={style.buttons}>
-       <div className={style.shiny}> 
-        <button type="button" className={`btn btn-danger ${style.buttonshiny}`}>SHINY</button>
-       </div>
-      <img src={pokemon.img}/>
-        <Link to = "/pokemons">
-              <button type="button" className="btn btn-danger">Regresar</button>
-      </Link>
+       
+      <img src={shiny ? pokemon.img2 : pokemon.img}/>
+      {shiny ? ( <button type="button" onClick={() =>handleClick()} className="btn btn-secondary">NORMAL</button>) : (<button type="button" onClick={() =>handleClick()} className={`btn btn-danger ${style.buttonshiny}`}>SHINY</button>)}
+       
       </div>
       <div className={style.info}>
         <div className={style.info1}>

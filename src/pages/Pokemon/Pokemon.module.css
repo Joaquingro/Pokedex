@@ -25,6 +25,7 @@
     padding: 10px;
     color: white;
     font-weight: bold;
+    font-size: 20px;
 }
 
 .title{
@@ -51,15 +52,28 @@
 .buttons{
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
 }
 
-.shiny{
-    display: flex;
-    justify-content: flex-end;
-    
+.buttonshiny{
+    background-image: linear-gradient(to left, red, orange, yellow, green, rgb(0, 204, 255), violet, gold, rgb(223, 170, 25));
+    background-size: 200% auto;
+    color: white;
+    animation: rainbow-animation 8s linear infinite;
 }
+@keyframes rainbow-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
 
-
+.buttonormal{
+    background-color: rgb(255, 255, 255);
+    border: none;
+}
 
 .moves{
     display: flex;
