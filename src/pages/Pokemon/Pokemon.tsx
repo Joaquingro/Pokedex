@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import style from "../Pokemon/Pokemon.module.css";
 import { useEffect, useState } from "react";
+import pokeball from "../../assets/pokeball2.png"
 import { getPokemon } from "../../api/getPokemon";
-
 interface MyComponentProps {
   Link: React.ComponentType<any>;
 }
@@ -17,7 +17,7 @@ interface MyComponentProps {
     img2: string;
     hp: number;
     attack: number;
-    deffense: number;
+    defense: number;
     abilities: Array<[]>;
     moves: Array<[]>;
     id: number, 
@@ -36,20 +36,25 @@ interface MyComponentProps {
         const pokemonSelected: any = await getPokemon(name.toLocaleLowerCase());
         setPokemon(pokemonSelected);
         
+        
       }
     }
     onePokemon();
   }, [name])
+
   const maxHP = 150;
+  
   return (
     
     <div className={style.container}>
-        <Link to = "/pokemons">
-              <button type="button" className="btn btn-danger">Regresar</button>
+        <Link  className={style.span} to = "/pokemons">
+              <img className= {style.back} src={pokeball}/>
+              <span>Back</span>
       </Link>
     
       {pokemon && (
       <div className={style.pokemon}>
+      
       <div className={style.buttons}>
        
       <img src={shiny ? pokemon.img2 : pokemon.img}/>
@@ -75,8 +80,8 @@ interface MyComponentProps {
           </div>
           
             <p>Defense:</p>
-            <div className={`progress ${style.progress}`} role="progressbar" aria-label="Success example" aria-valuenow={pokemon.deffense} aria-valuemin={0} aria-valuemax={maxHP}>
-            <div className="progress-bar bg-info text-white" style={{width: `${pokemon.deffense / maxHP * 100}%`}}>{pokemon.deffense}</div>
+            <div className={`progress ${style.progress}`} role="progressbar" aria-label="Success example" aria-valuenow={pokemon.defense} aria-valuemin={0} aria-valuemax={maxHP}>
+            <div className="progress-bar bg-info text-white" style={{width: `${pokemon.defense / maxHP * 100}%`}}>{pokemon.defense}</div>
           </div>
         </div>
         <div className={style.info3}>
