@@ -20,6 +20,7 @@ export const getPokemon = async (name: string) => {
             abilities: [data.abilities[0].ability.name, data.abilities[1]?.ability.name],
             moves: [data.moves[0].move.name, data.moves[1].move.name, data.moves[2].move.name, data.moves[3].move.name, data.moves[4].move.name], 
             id: data.id,
+            // type: [data.types[0].type.name, data.type[1]?.type.name],
             
         }
         console.log(pokemons);

@@ -21,6 +21,7 @@ interface MyComponentProps {
     abilities: Array<[]>;
     moves: Array<[]>;
     id: number, 
+    type: Array<[]>, 
   } | null>(null);
   
   console.log(name);
