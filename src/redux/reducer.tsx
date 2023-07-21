@@ -10,7 +10,7 @@ export interface AppState {
 
   const initialState: AppState = {
     pokemons: [],
-    pokemon: { name: '', img: '', img2: '', hp: 0, attack: 0, defense: 0, abilities: [], moves: [], id: 0 },
+    pokemon: { name: '', img: '', img2: '', hp: 0, attack: 0, defense: 0, abilities: [], moves: [], id: 0, type: []},
   };
   
 

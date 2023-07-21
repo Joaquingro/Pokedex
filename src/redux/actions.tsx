@@ -1,8 +1,7 @@
 import { GET_POKEMONS, GET_POKEMON } from "./types";
 import axios from "axios";
-import { AnyAction, Dispatch } from 'redux';
-import { ThunkAction, ThunkDispatch } from "redux-thunk";
-import { AppState } from "./reducer";
+import { Dispatch } from 'redux';
+import { formatName } from "../api/utils";
 
 export interface pokemon {
     name: string;
@@ -14,19 +13,9 @@ export interface pokemon {
     abilities: string[];
     moves: string[];
     id: number;
+    type: string[];
   }
 
-  interface PokemonData {
-    name: string;
-    img: string;
-    img2: string;
-    hp: number;
-    attack: number;
-    defense: number;
-    abilities: string[];
-    moves: string[];
-    id: number;
-  }
 
 export interface pokemons{
     name: string;
@@ -48,7 +37,7 @@ type AppAction = GetPokemonsAction | GetPokemonAction;
 
 
 export const getPokemons = () => {
-    return async(dispatch: Dispatch<AppAction>) => {
+    return async(dispatch: Dispatch) => {
         try {
             const response = await axios.get("https://unpkg.com/pokemons@1.1.0/pokemons.json")
             const data = response.data;
@@ -77,13 +66,13 @@ export const getPokemons = () => {
 }
 
 export const getPokemon = (name: string) => {
-    return async (dispatch: Dispatch<AnyAction>) => {
+    return async (dispatch: Dispatch) => {
         try {
         const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
         const data = response.data;
         console.log(data);
 
-        const pokemons: PokemonData = {
+        const pokemons: pokemon = {
             name: data.name,
             img: data.sprites.other.home.front_default,
             img2: data.sprites.other.home.front_shiny,
@@ -91,8 +80,10 @@ export const getPokemon = (name: string) => {
             attack: data.stats[1].base_stat,
             defense: data.stats[2].base_stat,
             abilities: [data.abilities[0].ability.name, data.abilities[1]?.ability.name],
-            moves: [data.moves[0].move.name, data.moves[1].move.name, data.moves[2].move.name, data.moves[3].move.name, data.moves[4].move.name], 
+            moves: [data.moves[0].move.name, data.moves[1]?.move.name, data.moves[2]?.move.name, data.moves[3]?.move.name, data.moves[4]?.move.name], 
             id: data.id,
+            type: [data.types[0]?.type.name, data.types[1]?.type.name],
+            
             
         }
         console.log(pokemons);

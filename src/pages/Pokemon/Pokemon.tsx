@@ -2,46 +2,67 @@ import { useParams } from "react-router-dom";
 import style from "../Pokemon/Pokemon.module.css";
 import { useEffect, useState } from "react";
 import pokeball from "../../assets/pokeball2.png"
-import { getPokemon } from "../../api/getPokemon";
+// import { getPokemon } from "../../api/getPokemon";
+import { useDispatch, useSelector } from "react-redux";
+import AppAction, { getPokemon } from "../../redux/actions";
+import { Dispatch } from "redux";
+import { AppState } from "../../redux/reducer";
+import { formatName } from "../../api/utils";
 interface MyComponentProps {
   Link: React.ComponentType<any>;
 }
 
  const Pokemon: React.FC<MyComponentProps> = ({Link} ) =>  {
-
+  const dispatch = useDispatch<Dispatch<any>>();
   const [shiny, setShiny] = useState(false);
   const {name} = useParams();
-  const [pokemon, setPokemon] = useState<{
-    name: string;
-    img: string;
-    img2: string;
-    hp: number;
-    attack: number;
-    defense: number;
-    abilities: Array<[]>;
-    moves: Array<[]>;
-    id: number, 
-    type: Array<[]>, 
-  } | null>(null);
+  const pokemon = useSelector((state: AppState) => state.pokemon);
+  console.log(pokemon);
+  
+  // const [pokemon, setPokemon] = useState<{
+  //   name: string;
+  //   img: string;
+  //   img2: string;
+  //   hp: number;
+  //   attack: number;
+  //   defense: number;
+  //   abilities: Array<[]>;
+  //   moves: Array<[]>;
+  //   id: number, 
+  //   type: Array<[]>, 
+  // } | null>(null);
   
   console.log(name);
-  console.log(pokemon);
+  
   
   const handleClick = () => {
     setShiny(!shiny);
   }  
 
   useEffect(() => {
-    const onePokemon = async () => {
-      if(name){
-        const pokemonSelected: any = await getPokemon(name.toLocaleLowerCase());
-        setPokemon(pokemonSelected);
-        
-        
+    const fetchPokemon = async () => {
+      if (name) {
+        await dispatch(getPokemon(formatName(name.toLocaleLowerCase())));
       }
     }
-    onePokemon();
-  }, [name])
+  
+    fetchPokemon();
+  }, [name]);
+  
+
+
+
+  // useEffect(() => {
+  //   const onePokemon = async () => {
+  //     if(name){
+  //       const pokemonSelected: any = await getPokemon(name.toLocaleLowerCase());
+  //       setPokemon(pokemonSelected);
+        
+        
+  //     }
+  //   }
+  //   onePokemon();
+  // }, [name])
 
   const maxHP = 150;
   
@@ -64,12 +85,19 @@ interface MyComponentProps {
       </div>
       <div className={style.info}>
         <div className={style.info1}>
+        <div className={style.infoSon}>
           <p>Name: {name}</p>
           <p>Id: {pokemon.id}</p>
         </div>
+        <div className={style.info1Son}>
+          {pokemon.type[1] ?  <p>Type: {pokemon.type[0]} / {pokemon.type[1]}</p> :
+          <p>Type: {pokemon.type[0]}</p>}
+         
+          
+        </div>
+        </div>
         <div className={style.info2}>
             <p className={style.title}>Statistics</p>
-
             <p>HP:</p>
           <div className={`progress ${style.progress}`} role="progressbar" aria-label="Success example" aria-valuenow={pokemon.hp} aria-valuemin={0} aria-valuemax={maxHP}>
             <div className="progress-bar bg-danger" style={{width: `${pokemon.hp / maxHP * 100}%`}}>{pokemon.hp}</div>
@@ -90,9 +118,9 @@ interface MyComponentProps {
             <span className={style.title}>Moves:</span> 
           <div className={style.moves}>
             <p>{pokemon.moves[0]}</p>
-            <p>{pokemon.moves[1]}</p>
-            <p>{pokemon.moves[2]}</p>
-            <p>{pokemon.moves[3]}</p>
+            {pokemon.moves[1] ? <p>{pokemon.moves[1]}</p> : null}
+            {pokemon.moves[2] ? <p>{pokemon.moves[2]}</p> : null}
+            {pokemon.moves[3] ? <p>{pokemon.moves[3]}</p> : null}
 
             </div>
             </div>
@@ -100,7 +128,8 @@ interface MyComponentProps {
           <span className={style.title}>Abilities:</span>
           <div className={style.moves}>
             <p>{pokemon.abilities[0]}</p>
-            <p>{pokemon.abilities[1] ? pokemon.abilities[1] : "---"}</p>
+            {pokemon.abilities[1] ? <p>{pokemon.abilities[1]}</p> : null}
+
           </div>
           </div>
         </div>
