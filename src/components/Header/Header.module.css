@@ -1,17 +1,33 @@
+.container{
+    display: flex;
+    justify-content: space-around;
+    border-bottom-right-radius: 40px;
+    
+}
+.containerfather{
+   background: var(--bg-colors);
+}
+
+
 header{
-    display: grid;
     font-size: 1.3em;
     font-weight: bold;
     padding: 10px;
     place-items: center;
     background: var(--bg-color);
+    z-index: 0;
+    color: white;
+}
+
+header img{
+    height: 15em
 }
 
 .input{
-    background-color: rgba(121, 121, 121, 0.267);
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 10px 10px;
     border-radius: 5px;
     margin: 10px 10px;
     border: none;
-    width: 80vw;
+
 }

@@ -44,9 +44,10 @@ export const getPokemons = () => {
             console.log(data);
     
             const pokemons = await data.results.map((pokemon: any) => ({
-                name: pokemon.name,
+                name: formatName(pokemon.name),
                 id: pokemon.national_number,
-                imgSrc: pokemon.sprites.normal,
+                imgSrc:`https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/${pokemon.name.toLocaleLowerCase()}.png`,
+                imgSrc2: pokemon.sprites.large,
                 
             }));
     

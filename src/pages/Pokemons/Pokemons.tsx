@@ -18,7 +18,7 @@ export default function Pokemons({ Link }: any) {
   
   const dispatch = useDispatch<Dispatch<any>>();
 
-  const filteredPokemons = pokemons?.slice(0, 1008).filter((pokemon) => {
+  const filteredPokemons = pokemons?.slice(0, 151).filter((pokemon) => {
     return pokemon.name.match(query);
   })
 
@@ -60,17 +60,16 @@ if(loading){
   <>
     <Header query={query} setQuery={setQuery}/>
     <main className={style.main}>
-    <Categories Link= {Link}/>
-    {/* <div className={style.kanto}>
-      <h2>Kanto</h2>
-    </div> */}
+      <Categories/>
+    <div className={style.containerFather}>
     <nav className={style.container}>
-  {filteredPokemons?.slice(0, 1008).map((pokemon) => (
+  {filteredPokemons?.slice(0, 151).map((pokemon) => (
     <Link className={style.texts} to={`/pokemons/${pokemon.name}`} key={pokemon.id}>
       <img className={style.img} src={pokemon.imgSrc} alt="pokemon" />
     </Link>
   ))}
 </nav>
+    </div>
     </main>
     <Footer Link = {Link}/>
 
