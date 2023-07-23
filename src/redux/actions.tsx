@@ -1,7 +1,8 @@
-import { GET_POKEMONS, GET_POKEMON } from "./types";
+import { GET_POKEMONS, GET_POKEMON, REGIONS } from "./types";
 import axios from "axios";
 import { Dispatch } from 'redux';
 import { formatName } from "../api/utils";
+import { AppState } from "./reducer";
 
 export interface pokemon {
     name: string;
@@ -16,6 +17,11 @@ export interface pokemon {
     type: string[];
   }
 
+export interface regions {
+    name: string;
+    id: number;
+    imgSrc?:string|null;
+}
 
 export interface pokemons{
     name: string;
@@ -33,7 +39,12 @@ interface GetPokemonAction {
   payload: pokemon;
 }
 
-type AppAction = GetPokemonsAction | GetPokemonAction;
+interface GetRegions {
+    type: typeof REGIONS;
+    payload: regions[];
+}
+
+type AppAction = GetPokemonsAction | GetPokemonAction | GetRegions;
 
 
 export const getPokemons = () => {
@@ -54,6 +65,8 @@ export const getPokemons = () => {
             const uniquePokemon = pokemons.filter((pokemon: any, index: number) => {
                 return pokemons.findIndex((p:any)=> p.id === pokemon.id ) === index
             })
+            console.log(uniquePokemon);
+            
             
             return dispatch({
                 type: GET_POKEMONS,
@@ -101,6 +114,46 @@ export const getPokemon = (name: string) => {
     }
     }
     
+}
+
+export const orderRegions = (name: string) => {
+    
+    return async (dispatch: Dispatch<AppAction>, getState: () => AppState) => {
+        console.log(name);
+        
+        try {
+          const { pokemons } = getState();
+          let filteredPokemons: pokemons[] = [];
+            
+            
+        
+          if (name === "Kanto") {
+            filteredPokemons = pokemons.slice(0, 151);
+          } else if (name === "Johto") {
+            filteredPokemons = pokemons.slice(152, 251);
+          } else if( name === "Hoenn"){
+            filteredPokemons= pokemons.slice(252,386);
+          } else if( name === "Sinnoh"){
+            filteredPokemons= pokemons.slice(387,493);
+          } else if( name === "Teselia"){
+            filteredPokemons= pokemons.slice(394,649);
+          } else if( name === "Kalos"){
+            filteredPokemons= pokemons.slice(650,721);
+          } else if( name === "Alola"){
+            filteredPokemons= pokemons.slice(724,809);
+          } else if( name === "Galar"){
+            filteredPokemons= pokemons.slice(810, 898);
+          } 
+          console.log(filteredPokemons);
+          
+          dispatch({
+            type: REGIONS,
+            payload: filteredPokemons,
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      };
 }
 
 export default AppAction;

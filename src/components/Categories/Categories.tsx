@@ -1,12 +1,26 @@
 import style from "../Categories/Categories.module.css";
 import "animate.css";
 import pokedex from "../../assets/pokedex.png";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { Dispatch } from "redux";
+import AppAction, { orderRegions } from "../../redux/actions";
+import { ThunkAction } from 'redux-thunk';
+
 export default function Categories() {
+const dispatch: Dispatch<any>  = useDispatch();
+
+const handleRegions =  (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    dispatch(orderRegions(value))
+}
+
+
   return (
     <div className={style.container}>
         <img src={pokedex} alt="pokedex"/>
         <div>
-         <select className={style.filters}>
+         <select onChange={handleRegions} className={style.filters}>
             <option disabled = {true} value = "">Regions</option>
             <option value="Kanto">Kanto</option>
             <option value="Johto">Johto</option>
@@ -15,8 +29,7 @@ export default function Categories() {
             <option value="Teselia">Teselia</option>
             <option value="Kalos">Kalos</option>
             <option value="Alola">Alola</option>
-            <option value="Galar">Galar</option>
-            <option value="Hisui">Hisui</option>
+            
          </select>
         </div>
     </div>

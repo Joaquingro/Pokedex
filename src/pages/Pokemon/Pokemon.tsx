@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import pokeball from "../../assets/pokeball2.png"
 // import { getPokemon } from "../../api/getPokemon";
 import { useDispatch, useSelector } from "react-redux";
-import AppAction, { getPokemon } from "../../redux/actions";
+import { getPokemon } from "../../redux/actions";
 import { Dispatch } from "redux";
 import { AppState } from "../../redux/reducer";
 import { formatName } from "../../api/utils";

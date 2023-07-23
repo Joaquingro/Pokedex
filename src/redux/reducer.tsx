@@ -1,16 +1,30 @@
 import { Reducer } from 'redux';
-import AppAction, { pokemon, pokemons } from './actions';
-import { GET_POKEMON, GET_POKEMONS } from './types';
+import AppAction, { pokemon, pokemons, regions } from './actions';
+import { GET_POKEMON, GET_POKEMONS, REGIONS } from './types';
 
 export interface AppState {
     pokemons: pokemons[];
     pokemon: pokemon;
+    regions: regions[];
   }
   
 
   const initialState: AppState = {
+    regions: [],
     pokemons: [],
-    pokemon: { name: '', img: '', img2: '', hp: 0, attack: 0, defense: 0, abilities: [], moves: [], id: 0, type: []},
+    pokemon: { 
+    name: '', 
+    img: '', 
+    img2: '', 
+    hp: 0, 
+    attack: 0, 
+    defense: 0, 
+    abilities: [], 
+    moves: [], 
+    id: 0, 
+    type: []
+    },
+  
   };
   
 
@@ -27,8 +41,17 @@ const appReducer: Reducer<AppState, AppAction> = (state = initialState, action) 
             return{
                 ...state,
                 pokemons: action.payload
-            }
+            };
     
+        case REGIONS:
+           
+              return{
+                  ...state,
+                  regions: action.payload,
+              };
+            
+           
+            
         default:
             return state;
     }

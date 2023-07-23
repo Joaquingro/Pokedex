@@ -15,10 +15,12 @@ export default function Pokemons({ Link }: any) {
   const [loading, setLoading] = useState(true);
   const pokemons = useSelector((state: AppState) => state.pokemons);
   console.log(pokemons);
+  const regions = useSelector((state: AppState) => state.regions);
+  console.log(regions);
   
   const dispatch = useDispatch<Dispatch<any>>();
 
-  const filteredPokemons = pokemons?.slice(0, 151).filter((pokemon) => {
+  const filteredPokemons = pokemons?.slice(0, 898).filter((pokemon) => {
     return pokemon.name.match(query);
   })
 
@@ -63,7 +65,7 @@ if(loading){
       <Categories/>
     <div className={style.containerFather}>
     <nav className={style.container}>
-  {filteredPokemons?.slice(0, 151).map((pokemon) => (
+  {regions?.map((pokemon) => (
     <Link className={style.texts} to={`/pokemons/${pokemon.name}`} key={pokemon.id}>
       <img className={style.img} src={pokemon.imgSrc} alt="pokemon" />
     </Link>

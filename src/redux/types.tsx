@@ -1,2 +1,11 @@
 export const GET_POKEMONS = "GET_POKEMONS";
 export const GET_POKEMON = "GET_POKEMON";
+export const REGIONS = "REGIONS";
+// export const JOHTO = "JOHTO";
+// export const HOENN = "HOENN";
+// export const SINNOH = "SINNOH";
+// export const TESELIA = "TESELIA";
+// export const KALOS = "KALOS";
+// export const ALOLA = "ALOLA";
+// export const GALAR = "GALAR";
+// export const HISUI = "HISUI";
