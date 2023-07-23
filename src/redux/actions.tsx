@@ -21,12 +21,15 @@ export interface regions {
     name: string;
     id: number;
     imgSrc?:string|null;
+
 }
 
 export interface pokemons{
     name: string;
     id: number;
     imgSrc?:string|null;
+    
+
 }
 
 interface GetPokemonsAction {
@@ -57,7 +60,7 @@ export const getPokemons = () => {
             const pokemons = await data.results.map((pokemon: any) => ({
                 name: formatName(pokemon.name),
                 id: pokemon.national_number,
-                imgSrc:`https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/${pokemon.name.toLocaleLowerCase()}.png`,
+                imgSrc:`https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/${formatName(pokemon.name)}.png`,
                 imgSrc2: pokemon.sprites.large,
                 
             }));

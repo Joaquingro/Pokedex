@@ -8,6 +8,7 @@ import { getPokemon } from "../../redux/actions";
 import { Dispatch } from "redux";
 import { AppState } from "../../redux/reducer";
 import { formatName } from "../../api/utils";
+import Loading from "../../components/Loading/Loading";
 interface MyComponentProps {
   Link: React.ComponentType<any>;
 }
@@ -16,21 +17,9 @@ interface MyComponentProps {
   const dispatch = useDispatch<Dispatch<any>>();
   const [shiny, setShiny] = useState(false);
   const {name} = useParams();
+  const [loading, setLoading] = useState(true);
   const pokemon = useSelector((state: AppState) => state.pokemon);
   console.log(pokemon);
-  
-  // const [pokemon, setPokemon] = useState<{
-  //   name: string;
-  //   img: string;
-  //   img2: string;
-  //   hp: number;
-  //   attack: number;
-  //   defense: number;
-  //   abilities: Array<[]>;
-  //   moves: Array<[]>;
-  //   id: number, 
-  //   type: Array<[]>, 
-  // } | null>(null);
   
   console.log(name);
   
@@ -39,30 +28,31 @@ interface MyComponentProps {
     setShiny(!shiny);
   }  
 
+  
+  
   useEffect(() => {
     const fetchPokemon = async () => {
       if (name) {
         await dispatch(getPokemon(formatName(name.toLocaleLowerCase())));
       }
     }
-  
+    
     fetchPokemon();
+    
   }, [name]);
   
-
-
-
-  // useEffect(() => {
-  //   const onePokemon = async () => {
-  //     if(name){
-  //       const pokemonSelected: any = await getPokemon(name.toLocaleLowerCase());
-  //       setPokemon(pokemonSelected);
+  useEffect(() => {
+    if(pokemon){
+      setTimeout(() => {
+        setLoading(false);
         
-        
-  //     }
-  //   }
-  //   onePokemon();
-  // }, [name])
+      }, 1000);
+    }
+  
+    
+  }, [pokemon])
+
+ if(loading) return <Loading/>
 
   const maxHP = 150;
   

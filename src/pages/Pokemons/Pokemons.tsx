@@ -10,24 +10,24 @@ import { getPokemons } from "../../redux/actions";
 import { AppState } from "../../redux/reducer";
 
 export default function Pokemons({ Link }: any) {
+  
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const regions = useSelector((state: AppState) => state.regions);
-  
   const dispatch = useDispatch<Dispatch<any>>();
-
+  console.log(regions);
+  
   const filteredPokemons = regions?.slice(0, 807).filter((pokemon) => {
     return pokemon.name.match(query);
   })
+console.log(filteredPokemons);
 
   useEffect(() => {
     if(filteredPokemons){
         setLoading(false);
-    }
-  
-    
+    }    
   }, [filteredPokemons])
-  
+
   useEffect(() => {
     dispatch(getPokemons());
   }, [])
