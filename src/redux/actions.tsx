@@ -132,18 +132,18 @@ export const orderRegions = (name: string) => {
           } else if (name === "Johto") {
             filteredPokemons = pokemons.slice(152, 251);
           } else if( name === "Hoenn"){
-            filteredPokemons= pokemons.slice(252,386);
+            filteredPokemons= pokemons.slice(251,386);
           } else if( name === "Sinnoh"){
-            filteredPokemons= pokemons.slice(387,493);
+            filteredPokemons= pokemons.slice(386,493);
           } else if( name === "Teselia"){
-            filteredPokemons= pokemons.slice(394,649);
+            filteredPokemons= pokemons.slice(494,649);
           } else if( name === "Kalos"){
-            filteredPokemons= pokemons.slice(650,721);
+            filteredPokemons= pokemons.slice(649,721);
           } else if( name === "Alola"){
             filteredPokemons= pokemons.slice(724,809);
-          } else if( name === "Galar"){
-            filteredPokemons= pokemons.slice(810, 898);
-          } 
+          } else {
+            filteredPokemons = pokemons.slice(0, 809 )
+          }
           console.log(filteredPokemons);
           
           dispatch({

@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
 import AppAction, { orderRegions } from "../../redux/actions";
 import { ThunkAction } from 'redux-thunk';
+import map from "../../assets/pointer.png"
 
 export default function Categories() {
 const dispatch: Dispatch<any>  = useDispatch();
@@ -18,10 +19,14 @@ const handleRegions =  (event: React.ChangeEvent<HTMLSelectElement>) => {
 
   return (
     <div className={style.container}>
-        <img src={pokedex} alt="pokedex"/>
+        <div className={style.imagePokedex}>
+            <img src={pokedex} alt="pokedex"/>
+        </div>
         <div>
-         <select onChange={handleRegions} className={style.filters}>
-            <option disabled = {true} value = "">Regions</option>
+        <img className={style.map} src={map} alt="map"/>
+         <select onChange={handleRegions} className={style.filters}  defaultValue="">
+            <option value="" disabled>Regions</option>
+            <option value="All">All pokemons</option>
             <option value="Kanto">Kanto</option>
             <option value="Johto">Johto</option>
             <option value="Hoenn">Hoenn</option>
@@ -31,6 +36,8 @@ const handleRegions =  (event: React.ChangeEvent<HTMLSelectElement>) => {
             <option value="Alola">Alola</option>
             
          </select>
+      <p>Welcome! Choose a <strong className={style.strongp}>region</strong> and discover the pokemons!</p>
+
         </div>
     </div>
   )

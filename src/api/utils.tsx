@@ -14,7 +14,9 @@ export function formatName(name: string): string {
   } else if(name.includes("flabébé")){
     return name.replace("flabébé", "flabebe")
   } else if(name.includes("Mr-Mime")){
-    return name.replace("Mr-Mime", "mr.-mime")
+    return name.replace("Mr-Mime", "mr.-mime");
+  } else if(name.includes("aegislash")){
+    return name.replace("aegislash", "aegislash-shield")
   } else {
     return name;
   }

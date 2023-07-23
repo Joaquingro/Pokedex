@@ -1,7 +1,7 @@
 .footer{
     padding: 10px;
     justify-content: space-around;
-    background: var(--bg-gradient);
+    background: var(--bg-color);
     display: flex;
     width: 100%;
     position: relative;
