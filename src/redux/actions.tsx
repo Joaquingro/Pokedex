@@ -21,6 +21,8 @@ export interface regions {
     name: string;
     id: number;
     imgSrc?:string|null;
+    imgSrc2?:string|null;
+    
 
 }
 
@@ -28,6 +30,7 @@ export interface pokemons{
     name: string;
     id: number;
     imgSrc?:string|null;
+    imgSrc2?:string|null;
     
 
 }
@@ -61,7 +64,7 @@ export const getPokemons = () => {
                 name: formatName(pokemon.name),
                 id: pokemon.national_number,
                 imgSrc:`https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/${formatName(pokemon.name)}.png`,
-                imgSrc2: pokemon.sprites.large,
+                imgSrc2: `https://img.pokemondb.net/artwork/${formatName(pokemon.name)}.jpg`,
                 
             }));
     
@@ -70,6 +73,7 @@ export const getPokemons = () => {
             })
             console.log(uniquePokemon);
             
+            console.log(pokemons);
             
             return dispatch({
                 type: GET_POKEMONS,

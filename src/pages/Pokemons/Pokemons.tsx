@@ -51,7 +51,13 @@ return (
     <nav className={style.container}>
   {filteredPokemons?.map((pokemon) => (
     <Link className={style.texts} to={`/pokemons/${pokemon.name}`} key={pokemon.id}>
-      <img className={style.img} src={pokemon.imgSrc} alt="pokemon" />
+
+      <img
+        className={style.img}
+        src={pokemon.imgSrc ?? pokemon.imgSrc2 ?? 'ruta-por-defecto.png'}
+        alt="pokemon"
+      />
+     
     </Link>
   ))}
 </nav>

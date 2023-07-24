@@ -1,29 +1,34 @@
 
 
 export function formatName(name: string): string {
-  console.log(name);
-  
-  if (name.includes("Nidoran♀")) {
-    return name.replace("Nidoran♀", "nidoran-f");
-  } else if (name.includes("Nidoran♂")) {
-    return name.replace("Nidoran♂", "nidoran-m");
-  } else if (name.includes(". ")) {
-    return name.replace(". ", "-");
-  } else if (name.includes("Farfetch'd")) {
-    return name.replace("Farfetch'd", "farfetchd");
-  } else if (name.normalize("NFD").includes("flabebe")) {
-    return name.replace("flabébé", "flabebe");
-  } else if (name.normalize("NFD").includes("Mr-Mime")) {
-    return name.replace(/Mr-Mime/g, "mr-mime");
-  } else if(name.includes("aegislash")){
-    return name.replace("aegislash", "aegislash-shield")
-  } else if(name.includes("zygarde")){
-    return name.replace("zygarde", "zygarde-50")
-  }  else if(name.includes("meowstic")){
-    return name.replace("meowstic", "meowstic-male")
-  }  
-  else {
-    return name.toLocaleLowerCase();
+  const normalized = name
+  .normalize("NFD") // Descompone caracteres acentuados en sus formas base y diacríticos
+  .replace(/[\u0300-\u036f]/g, "") // Elimina los caracteres diacríticos
+  .toLowerCase();
+
+  if (normalized.includes("nidoran♀")) {
+    return normalized.replace("nidoran♀", "nidoran-f");
+  } else if (normalized.includes("nidoran♂")) {
+    return normalized.replace("nidoran♂", "nidoran-m");
+  } else if (normalized.includes(". ")) {
+    return normalized.replace(". ", "-");
+  } else if (normalized.includes("farfetch'd")) {
+    return normalized.replace("farfetch'd", "farfetchd");
+  } else if (name.includes("flabébé")) {
+    return  normalized.replace("flabebe", "flabebe");
+  } else if (name.includes("shaymin")) {
+    return name.replace("shaymin", "shaymin-land");
+  }  else if (normalized.includes("mr-mime")) {
+    return normalized.replace(/mr-mime/g, "mr-mime");
+  } else if (normalized.includes("mime jr.")) {
+    return normalized.replace(/mime jr./g, "mime-jr");
+  } else if (normalized.includes("aegislash")) {
+    return normalized.replace("aegislash", "aegislash-shield");
+  } else if (normalized.includes("zygarde")) {
+    return normalized.replace("zygarde", "zygarde-50");
+  } else if (normalized.includes("meowstic")) {
+    return normalized.replace("meowstic", "meowstic-male");
+  } else {
+    return normalized;
   }
 }
-

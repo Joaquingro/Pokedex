@@ -33,7 +33,6 @@ const handleRegions =  (event: React.ChangeEvent<HTMLSelectElement>) => {
             <option value="Sinnoh">Sinnoh</option>
             <option value="Teselia">Teselia</option>
             <option value="Kalos">Kalos</option>
-            <option value="Alola">Alola</option>
             
          </select>
       <p>Welcome! Choose a <strong className={style.strongp}>region</strong> and discover the pokemons!</p>

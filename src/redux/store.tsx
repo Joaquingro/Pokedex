@@ -9,8 +9,8 @@ const persistConfig = {
   key: "root",
   storage,
   whitelist: [
-    "pokemons",
-    "regions",
+    // "pokemons",
+    // "regions",
   ],
 };
 
