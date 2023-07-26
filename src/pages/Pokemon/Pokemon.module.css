@@ -107,6 +107,15 @@
     border-radius: 5px;
     color: rgb(95, 155, 233);;
 }
+
+.info1Son p{
+
+    background-color: rgb(9, 72, 245);
+    padding: 5px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+}
+
 .progress{
     height: 2em;
     width: 45em;

@@ -1,11 +1,12 @@
 import { Reducer } from 'redux';
 import AppAction, { pokemon, pokemons, regions } from './actions';
-import { GET_POKEMON, GET_POKEMONS, REGIONS } from './types';
+import { GET_POKEMON, GET_POKEMONS, ID, REGIONS } from './types';
 
 export interface AppState {
     pokemons: pokemons[];
     pokemon: pokemon;
     regions: regions[];
+    id: number;
   }
   
 
@@ -24,7 +25,7 @@ export interface AppState {
     id: 0, 
     type: []
     },
-  
+    id: 0,
   };
   
 
@@ -50,7 +51,11 @@ const appReducer: Reducer<AppState, AppAction> = (state = initialState, action) 
                   regions: action.payload,
               };
             
-           
+        case ID:
+              return{
+                ...state,
+                id: action.payload,
+              }
             
         default:
             return state;

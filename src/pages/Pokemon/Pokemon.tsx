@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import style from "../Pokemon/Pokemon.module.css";
 import { useEffect, useState } from "react";
 import pokeball from "../../assets/pokeball2.png"
-// import { getPokemon } from "../../api/getPokemon";
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemon } from "../../redux/actions";
 import { Dispatch } from "redux";
@@ -19,21 +18,20 @@ interface MyComponentProps {
   const {name} = useParams();
   const [loading, setLoading] = useState(true);
   const pokemon = useSelector((state: AppState) => state.pokemon);
-  console.log(pokemon);
-  
-  console.log(name);
   
   
   const handleClick = () => {
     setShiny(!shiny);
   }  
 
+ 
   
-  
+ 
+
   useEffect(() => {
     const fetchPokemon = async () => {
       if (name) {
-        await dispatch(getPokemon(formatName(name.toLocaleLowerCase())));
+        await dispatch(getPokemon(formatName(name)));
       }
     }
     

@@ -18,7 +18,23 @@ export function formatName(name: string): string {
     return  normalized.replace("flabebe", "flabebe");
   } else if (name.includes("shaymin")) {
     return name.replace("shaymin", "shaymin-land");
-  }  else if (normalized.includes("mr-mime")) {
+  }  else if (name.includes("pumpkaboo")) {
+    return name.replace("pumpkaboo", "pumpkaboo-average");
+  } else if (name.includes("gourgeist")) {
+    return name.replace("gourgeist", "gourgeist-average");
+  }  else if (name.includes("landorus")) {
+    return name.replace("landorus", "landorus-incarnate");
+  } else if (name.includes("keldeo")) {
+    return name.replace("keldeo", "keldeo-ordinary");
+  } else if (name.includes("meloetta")) {
+    return name.replace("meloetta", "meloetta-aria");
+  } else if (name.includes("thundurus")) {
+    return name.replace("thundurus", "thundurus-incarnate");
+  } else if (name.includes("basculin")) {
+    return name.replace("basculin", "basculin-red-striped");
+  } else if (name.includes("wormadam")) {
+    return name.replace("wormadam", "wormadam-plant");
+  } else if (normalized.includes("mr-mime")) {
     return normalized.replace(/mr-mime/g, "mr-mime");
   } else if (normalized.includes("mime jr.")) {
     return normalized.replace(/mime jr./g, "mime-jr");

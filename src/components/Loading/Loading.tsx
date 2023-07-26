@@ -5,7 +5,7 @@ export default function Loading() {
     <div className={style.container}>
     <div>
         <img src={dragonite} alt="loading"/>
-        <p>Cargando pokemons...</p>
+        <p>Loading pokemons...</p>
     </div>
     </div>
   )

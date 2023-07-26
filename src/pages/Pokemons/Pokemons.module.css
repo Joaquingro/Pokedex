@@ -20,6 +20,10 @@
     padding: 10px;
     border-radius: 150px;
 }
+.img:hover{
+    box-shadow: 0px 0px 25px #ffffff;
+    backdrop-filter: blur(10px);
+}
 
 .texts{
     width: 12em;
@@ -27,13 +31,35 @@
     padding: 10px;
     text-decoration: none;
     align-items: center;
+    border-radius: 250px;
+    justify-content: center;
+    display: flex;
+
 }
-
-
 
 .spans{
     display: block;
     flex-direction: row;
     color: black;
+    font-weight: bold;
+}
+
+.notFound{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: white;
+    padding: 10px;
+}
+
+.notFound img{
+    border-radius: 100px;
+    width: 10em;
+}
+
+.notFound p{
+    font-size: 18px;
     font-weight: bold;
 }
