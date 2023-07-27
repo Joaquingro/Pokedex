@@ -13,8 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing Link = {Link} />} />
         <Route path="/items" element={<Items/>} />
-        <Route path="/pokemons" element={<Pokemons Link={Link} />} />
-        <Route path="/pokemons/:name" element={<Pokemon Link = {Link} />} />
+        <Route path="/pokemons" element={<Pokemons  />} />
+        <Route path="/pokemons/:name" element={<Pokemon />} />
       </Routes>
     </Router>
     </>

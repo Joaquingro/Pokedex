@@ -4,8 +4,7 @@ import pokedex from "../../assets/pokedex.png";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
-import AppAction, { orderRegions } from "../../redux/actions";
-import { ThunkAction } from 'redux-thunk';
+import  { orderRegions } from "../../redux/actions";
 import map from "../../assets/pointer.png"
 
 export default function Categories() {
