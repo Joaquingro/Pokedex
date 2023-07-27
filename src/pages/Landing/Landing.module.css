@@ -36,3 +36,47 @@
     margin-bottom: 1.3em;
     z-index: 0;
 }
+
+@media (min-width: 340px) and (max-width: 391px) {
+  .container{
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+
+  }
+
+  .container div{
+    margin-top: 10em;
+  }
+
+  .pokeball1{
+    margin-bottom: 12.6em;
+  }
+}
+
+@media (min-width: 391px) and (max-width: 768px) {
+  /* Estilos para pantallas con ancho máximo de 768px */
+  .container{
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+
+  }
+
+  .container div{
+    margin-top: 10em;
+  }
+
+  .pokeball1{
+    margin-bottom: 12.6em;
+  }
+  
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  /* Estilos para pantallas con ancho entre 768px y 992px */
+}
+
+@media (min-width: 992px) {
+  /* Estilos para pantallas con ancho mínimo de 992px */
+}

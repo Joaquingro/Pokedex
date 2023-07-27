@@ -8,11 +8,10 @@ import { Dispatch } from "redux";
 import { AppState } from "../../redux/reducer";
 import { formatName } from "../../api/utils";
 import Loading from "../../components/Loading/Loading";
-interface MyComponentProps {
-  Link: React.ComponentType<any>;
-}
+import { Link } from "react-router-dom";
 
- const Pokemon: React.FC<MyComponentProps> = ({Link} ) =>  {
+
+ const Pokemon = ( ) =>  {
   const dispatch = useDispatch<Dispatch<any>>();
   const [shiny, setShiny] = useState(false);
   const {name} = useParams();

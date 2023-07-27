@@ -32,3 +32,48 @@ header img{
     border: none;
 
 }
+
+@media (max-width: 391px) {
+    .container img{
+        height: 6em;
+    }
+  
+    .header{
+        transform: scale(0.7);
+    }
+
+    .container{
+        margin-top: 0;
+    }
+
+    .header p {
+        font-size: 17px;
+    }
+}
+@media (min-width: 391px) and (max-width: 768px) {
+  /* Estilos para pantallas con ancho máximo de 768px */
+    .container img{
+        height: 6em;
+    }
+  
+    .header{
+        transform: scale(0.7);
+    }
+
+    .container{
+        margin-top: 0;
+    }
+
+    .header p {
+        font-size: 17px;
+    }
+  
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  /* Estilos para pantallas con ancho entre 768px y 992px */
+}
+
+@media (min-width: 992px) {
+  /* Estilos para pantallas con ancho mínimo de 992px */
+}

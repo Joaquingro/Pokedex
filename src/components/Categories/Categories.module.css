@@ -46,3 +46,38 @@
   border-radius: 10px;
 
 }
+
+@media (max-width: 391px) {
+  .imagePokedex img{
+    transform: scale(0.6);
+    margin-left: -4em;
+    margin-top: -14em;
+   }
+ 
+   .containerSelect{
+     transform: scale(0.7);
+     margin-left: -11em;
+   }
+}
+@media (min-width: 391px) and (max-width: 768px) {
+  /* Estilos para pantallas con ancho máximo de 768px */
+  .imagePokedex img{
+   transform: scale(0.6);
+   margin-left: -4em;
+   margin-top: -14em;
+  }
+
+  .containerSelect{
+    transform: scale(0.7);
+    margin-left: -11em;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  /* Estilos para pantallas con ancho entre 768px y 992px */
+}
+
+@media (min-width: 992px) {
+  /* Estilos para pantallas con ancho mínimo de 992px */
+}
