@@ -64,7 +64,7 @@
     font-weight: bold;
 }
 
-@media (max-width: 391px) {
+@media (min-width: 326px) and (max-width: 391px) {
  .texts{
     width: 11em;
     height: 8em;

@@ -24,7 +24,7 @@ export default function Pokemons() {
   console.log(regions);
   
   const filteredPokemons = pokemons?.slice(0, 721).filter((pokemon) => {
-    return pokemon.name.match(query);
+    return pokemon.name.match(query.toLocaleLowerCase());
   })
   console.log(filteredPokemons);
   console.log(id);
@@ -70,7 +70,10 @@ return (
   
   filteredPokemons.map(pokemon => (
    
-      <NavLink className={style.texts} to={`/pokemons/${pokemon.name}`}>
+      <NavLink 
+      key={pokemon.id}
+      className={style.texts} 
+      to={`/pokemons/${pokemon.name}`}>
         <img
           className={style.img}
           src={pokemon.imgSrc ?? pokemon.imgSrc2 ?? ''}
