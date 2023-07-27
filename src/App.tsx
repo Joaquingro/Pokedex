@@ -1,6 +1,6 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Items, Pokemon, Pokemons } from './pages';
+import { Pokemon, Pokemons } from './pages';
 import Landing from './pages/Landing/Landing';
 
 
@@ -12,7 +12,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Landing Link = {Link} />} />
-        <Route path="/items" element={<Items/>} />
         <Route path="/pokemons" element={<Pokemons  />} />
         <Route path="/pokemons/:name" element={<Pokemon />} />
       </Routes>
