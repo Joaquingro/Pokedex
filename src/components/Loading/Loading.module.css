@@ -17,3 +17,25 @@
     border-radius: 200px;
     width: 12em;
 }
+
+@media (max-width: 391px) {
+ .container{
+    height: 43em;
+ }
+
+}
+@media (min-width: 391px) and (max-width: 768px) {
+  /* Estilos para pantallas con ancho máximo de 768px */
+  .container{
+    height: 43em;
+
+ }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  /* Estilos para pantallas con ancho entre 768px y 992px */
+}
+
+@media (min-width: 992px) {
+  /* Estilos para pantallas con ancho mínimo de 992px */
+}

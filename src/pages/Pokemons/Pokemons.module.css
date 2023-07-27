@@ -65,10 +65,16 @@
 }
 
 @media (max-width: 391px) {
+ .texts{
+    width: 11em;
+    height: 8em;
+    padding: 15px;
+ }
+
 }
 @media (min-width: 391px) and (max-width: 768px) {
   /* Estilos para pantallas con ancho máximo de 768px */
-  
+ 
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
