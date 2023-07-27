@@ -20,14 +20,14 @@
 
 @media (max-width: 391px) {
  .container{
-    height: 43em;
+    height: 45em;
  }
 
 }
 @media (min-width: 391px) and (max-width: 768px) {
   /* Estilos para pantallas con ancho máximo de 768px */
   .container{
-    height: 43em;
+    height: 45em;
 
  }
 }
