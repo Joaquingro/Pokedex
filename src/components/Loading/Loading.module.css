@@ -20,22 +20,27 @@
 
 @media (max-width: 391px) {
  .container{
-    height: 45em;
+    height: 55em;
  }
 
 }
 @media (min-width: 391px) and (max-width: 768px) {
   /* Estilos para pantallas con ancho máximo de 768px */
   .container{
-    height: 45em;
+    height: 55em;
 
  }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
   /* Estilos para pantallas con ancho entre 768px y 992px */
+  .container{
+    height: 65em;
+
+ }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 992px)  {
   /* Estilos para pantallas con ancho mínimo de 992px */
+  
 }
