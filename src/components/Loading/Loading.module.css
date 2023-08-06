@@ -1,7 +1,7 @@
 .container{
     display: flex;
     justify-content: center;
-    height: 39em;
+    height: 100vh;
     background: var(--bg-colors);
     align-items: center;
     color: rgb(110, 107, 107);
@@ -19,25 +19,17 @@
 }
 
 @media (max-width: 391px) {
- .container{
-    height: 55em;
- }
+ 
 
 }
 @media (min-width: 391px) and (max-width: 768px) {
   /* Estilos para pantallas con ancho máximo de 768px */
-  .container{
-    height: 55em;
-
- }
+  
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
   /* Estilos para pantallas con ancho entre 768px y 992px */
-  .container{
-    height: 65em;
-
- }
+ 
 }
 
 @media (min-width: 992px)  {

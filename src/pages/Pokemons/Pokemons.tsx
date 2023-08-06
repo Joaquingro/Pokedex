@@ -59,7 +59,7 @@ if(loading){
 }
 
 return (
-  <>
+  <div className={style.containerPrincipal}>
     <Header query={query} setQuery={setQuery}/>
     <main className={style.main}>
       <Categories/>
@@ -111,7 +111,7 @@ return (
     </main>
     <Footer/>
 
-  </>
+  </div>
   )
 }
 

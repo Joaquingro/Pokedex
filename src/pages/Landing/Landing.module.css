@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-around;
     background: var(--bg-colors);
+    height: 100vh;
 }
 
 .container div{
@@ -40,7 +41,6 @@
 @media (min-width: 340px) and (max-width: 391px) {
   .container{
     flex-direction: column;
-    height: 100%;
     align-items: center;
 
   }
@@ -58,7 +58,6 @@
   /* Estilos para pantallas con ancho máximo de 768px */
   .container{
     flex-direction: column;
-    height: 100%;
     align-items: center;
 
   }
